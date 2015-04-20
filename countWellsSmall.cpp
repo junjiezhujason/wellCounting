@@ -29,7 +29,15 @@ void bam_to_mapCount(const char* fName, mapCount& m, int& readsleft, const char*
     read_str read;
     BamTools::BamAlignment al;
 
+    uint32_t readCount = 0;
+    uint32_t readLimit = 10000001;
+
+
     while (reader.GetNextAlignment(al)) {           // each BAM entry is processed in this loop
+        if (readCount == readLimit) {
+            break;
+        }
+        readCount ++;
         if (al.GetTagType(tName, tagTypeName)) {    // ensure that tagType matches
             if (tagTypeName == 'Z') {               // verify that type is correct
                 read = al.QueryBases;               // extract the read from entry
@@ -46,6 +54,7 @@ void bam_to_mapCount(const char* fName, mapCount& m, int& readsleft, const char*
     }
     reader.Close();
 }
+
 
 void print_mapCount(const char* bFname, mapCount m, const int readsleft){ // print the map counts
     std::string fname1(bFname);   
