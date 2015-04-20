@@ -58,7 +58,7 @@ void bam_to_mapCount(const char* fName, mapCount& m, int& readsleft, const char*
 
 void print_mapCount(const char* bFname, mapCount m, const int readsleft){ // print the map counts
     std::string fname1(bFname);   
-    fname1 += std::string("_wnames"); 
+    fname1 += std::string("_Swnames"); 
     std::ofstream file1 (fname1.c_str());
     if (!file1.is_open()) {
        printf("map_to_file: Cannot open the file %s!\n", fname1.c_str());
@@ -66,7 +66,7 @@ void print_mapCount(const char* bFname, mapCount m, const int readsleft){ // pri
     }
 
     std::string fname2(bFname);   
-    fname2 += std::string("_wcounts"); 
+    fname2 += std::string("_Swcounts"); 
     std::ofstream file2 (fname2.c_str());
     if (!file2.is_open()) {
        printf("map_to_file: Cannot open the file %s!\n", fname2.c_str());
@@ -74,7 +74,7 @@ void print_mapCount(const char* bFname, mapCount m, const int readsleft){ // pri
     }
 
     std::string fname3(bFname);   
-    fname3 += std::string("_wsummary"); 
+    fname3 += std::string("_Swsummary"); 
     std::ofstream file3 (fname3.c_str());
     if (!file3.is_open()) {
        printf("map_to_file: Cannot open the file %s!\n", fname3.c_str());
