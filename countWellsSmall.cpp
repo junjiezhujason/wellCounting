@@ -102,7 +102,7 @@ void print_mapCount(const char* bFname, mapCount m, const int readsleft){ // pri
 int main(int argc, char* argv[]) {
     char* inputFileName;
     char barcodeName[] = "BX";
-    uint32_t readwowells = 0; // count reads that do not fall into any wells
+    int readwowells = 0; // count reads that do not fall into any wells
     mapCount MapWell;
 
     if ( argc == 2 ) {
