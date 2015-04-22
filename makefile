@@ -17,9 +17,17 @@ countWellsSmall: countWellsSmall.o
 countWellsSmall.o: countWellsSmall.cpp
 	gcc $(CFLAGS) $(DFLAGS) $(IFLAGS) $(LFLAGS) -c countWellsSmall.cpp
 
+genWellBam: genWellBam.o 
+	gcc $(CFLAGS) $(DFLAGS)  genWellBam.o -lz -pthread -lstdc++ -o genWellBam
+
+genWellBam.o: genWellBam.cpp
+	gcc $(CFLAGS) $(DFLAGS)  -c genWellBam.cpp
+
+
 clean:
 	rm -f countWells
 	rm -f countWells.o
 	rm -f countWellsSmall
 	rm -f countWellsSmall.o
-	
+	rm -f genWellBam
+	rm -f genWellBam.o
