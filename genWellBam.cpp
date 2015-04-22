@@ -51,8 +51,8 @@ int get_wellCount(const char* fname, mapCount& m, int nWells, int minSize) {
 
         if (count >= minSize) {
             m[name] = count;
-            printf("%s/t", name.c_str());
-            printf("%u/n", count);
+            printf("%s\t", name.c_str());
+            printf("%u\n", count);
         }
         wcount ++;
     }
