@@ -53,8 +53,9 @@ int get_wellCount(const char* fname, mapCount& m, int nWells, int minSize) {
             m[name] = count;
             printf("%s\t", name.c_str());
             printf("%u\n", count);
+            wcount ++;
         }
-        wcount ++;
+        
     }
 
     nameFile.close();
