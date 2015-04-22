@@ -79,7 +79,7 @@ int main(int argc, char* argv[]) {
     int numWells = 100;
     int minWellsize = 8000;
 
-    get_wellCount(inputFileName, MapWell, minWellsize, numWells);
+    get_wellCount(inputFileName, MapWell, numWells, minWellsize);
 
     //bam_to_mapCount(inputFileName, MapWell, readwowells, barcodeName);
     //print_mapCount(inputFileName, MapWell, readwowells);
