@@ -11,19 +11,19 @@
 typedef std::string barcode_str;
 
 int main(int argc, char* argv[]) {
-    char* bFname;
+    char* fName;
     char tName[] = "BX";
     int readswobc = 0; // count reads that do not fall into any wells
 
     if ( argc == 2 ) {
-            bFname  = argv[1] ;
+            fName  = argv[1] ;
     } else {
         std::cerr << "Wrong number of arguments." << std::endl;
         return 1;
     }
 
     // ============= FILE I/O  =============
-    std::string bamFname(bFname);
+    std::string bFname(fName);
     std::string fname1(bFname);   
     std::string fname2(bFname);   
     
