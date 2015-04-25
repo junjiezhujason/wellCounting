@@ -10,50 +10,6 @@
 
 typedef std::string barcode_str;
 
-
-void print_mapCount(const char* bFname, mapCount m, const int readswobc){ // print the map counts
-    std::string fname1(bFname);   
-    fname1 += std::string("_wnames"); 
-    std::ofstream file1 (fname1.c_str());
-    if (!file1.is_open()) {
-       printf("map_to_file: Cannot open the file %s!\n", fname1.c_str());
-       exit(1);
-    }
-
-    std::string fname2(bFname);   
-    fname2 += std::string("_wcounts"); 
-    std::ofstream file2 (fname2.c_str());
-    if (!file2.is_open()) {
-       printf("map_to_file: Cannot open the file %s!\n", fname2.c_str());
-       exit(1);
-    }
-
-    std::string fname3(bFname);   
-    fname3 += std::string("_wsummary"); 
-    std::ofstream file3 (fname3.c_str());
-    if (!file3.is_open()) {
-       printf("map_to_file: Cannot open the file %s!\n", fname3.c_str());
-       exit(1);
-    }
-
-    std::string bc; // barcode
-    uint32_t ct;    // count
-    for ( mapCount::iterator it = m.begin(); it != m.end(); ++it) {
-        bc = it->first;
-        ct = it->second;
-        file1 << bc.c_str() << "\n"; 
-        file2 << ct <<"\n";
-    }
-
-    file3 << "number of wells: " << m.size() << "\n";
-    file3 << "leftover reads: " << readswobc << "\n";
-
-    file1.close();
-    file2.close();
-    file3.close();
-}
-
-
 int main(int argc, char* argv[]) {
     char* fName;
     char tName[] = "BX";
