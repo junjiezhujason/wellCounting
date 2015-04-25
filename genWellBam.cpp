@@ -16,7 +16,6 @@ typedef std::multimap<barcode_str, read_str> multimapRead;  // maps the barcode 
 typedef std::map<barcode_str, uint32_t> mapCount;           // counts the numbers of barcodes
 
 
-
 int get_wellCount(const char* fname, mapCount& m, int nWells, int minSize) {
     // read name file
     std::string fname1(fname);

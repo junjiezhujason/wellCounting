@@ -23,6 +23,12 @@ genWellBam: genWellBam.o
 genWellBam.o: genWellBam.cpp
 	gcc $(CFLAGS) $(DFLAGS)  -c genWellBam.cpp
 
+indexbambc: indexbambc.o 
+	gcc $(CFLAGS) $(DFLAGS) $(IFLAGS) $(LFLAGS) indexbambc.o -lz -pthread -lstdc++ -o indexbambc
+
+indexbambc.o: indexbambc.cpp
+	gcc $(CFLAGS) $(DFLAGS) $(IFLAGS) $(LFLAGS) -c indexbambc.cpp
+
 
 clean:
 	rm -f countWells
@@ -31,3 +37,5 @@ clean:
 	rm -f countWellsSmall.o
 	rm -f genWellBam
 	rm -f genWellBam.o
+	rm -f indexbambc
+	rm -f indexbambc.o
