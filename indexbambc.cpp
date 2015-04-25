@@ -11,19 +11,19 @@
 typedef std::string barcode_str;
 
 int main(int argc, char* argv[]) {
-    char* fName;
+    char* bFname;
     char tName[] = "BX";
     int readswobc = 0; // count reads that do not fall into any wells
 
     if ( argc == 2 ) {
-            fName  = argv[1] ;
+            bFname  = argv[1] ;
     } else {
         std::cerr << "Wrong number of arguments." << std::endl;
         return 1;
     }
 
     // ============= FILE I/O  =============
-    std::string bamFname(fName);
+    std::string bamFname(bFname);
     std::string fname1(bFname);   
     std::string fname2(bFname);   
     
@@ -42,8 +42,8 @@ int main(int argc, char* argv[]) {
        exit(1);
     }
     BamTools::BamReader reader;
-    if (!reader.Open(bamFname)) {
-        printf("Cannot open bam file %s!\n", banFname.c_str());
+    if (!reader.Open(bFname)) {
+        printf("Cannot open bam file %s!\n", bFname.c_str());
         exit(1);
     }
 
