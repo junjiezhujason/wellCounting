@@ -5,10 +5,8 @@
 #include <string>
 #include <iostream>
 
-// gcc -I ~/Shannon/bamtools/include/ -L ~/Shannon/bamtools/lib/ -o countWells countWells.cpp -lz -lbamtools -lstdc++
-// ./countWells test_bamfiles/sim_reads_aligned.bam
-
 typedef std::string barcode_str;
+
 
 int main(int argc, char* argv[]) {
     char* fName;
@@ -50,7 +48,7 @@ int main(int argc, char* argv[]) {
     //  ============= MAIN PROGRAM  =============
     char tagTypeName;
     barcode_str bc, bc_prev;
-    uint64_t position = 0;
+    uint64_t linePos = 0; // linePos in bam file
 
     BamTools::BamAlignment al;
 
@@ -62,7 +60,7 @@ int main(int argc, char* argv[]) {
                     // output the barcode name
                     file1 << bc.c_str() << "\n"; 
                     // output the index of the entry that starts with this barcodes
-                    file2 << position << "\n";
+                    file2 << linePos << "\n";
                 }
                 bc_prev = bc;
             } 
@@ -73,13 +71,16 @@ int main(int argc, char* argv[]) {
         } else {
             readswobc ++;
         }
-        position ++;
+        linePos ++;
     }
+
+    file2 << linePos << "\n"; // record the last linePos = total number of reads
+
     reader.Close();
     file1.close();
     file2.close();
 
     printf("Finished reading file %s!\n", fName);
-    printf("Total number of reads %lld\n", (long long int) position);    
+    printf("Total number of reads %lld\n", (long long int) linePos);    
     return 0;
 }
