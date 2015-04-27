@@ -23,7 +23,7 @@ int main(int argc, char* argv[]) {
     
     fname1 += std::string("_bcindex"); 
     fname2 += std::string("_bcsel"); 
-    fname2 += std::to_string(static_cast<long long>(minRead); 
+    fname2 += std::to_string(static_cast<long long>(minRead)); 
 
     std::ifstream file1 (fname1.c_str());
     std::ofstream file2 (fname2.c_str());
