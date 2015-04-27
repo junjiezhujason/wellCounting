@@ -5,8 +5,6 @@
 #include <fstream>
 
 
-// Input: .bam_bcindex, 
-
 int main(int argc, char* argv[]) {
     char* bFname;		 // bam file
     int minRead;  		 // minimum number of reads/ partition
